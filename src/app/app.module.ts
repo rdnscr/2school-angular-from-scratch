@@ -10,11 +10,13 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
+import { TodoComponent } from './todo/todo.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavigationComponent
+    NavigationComponent,
+    TodoComponent
   ],
   imports: [
     BrowserModule,
