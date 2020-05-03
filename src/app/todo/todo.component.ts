@@ -11,7 +11,7 @@ export class TodoComponent {
     {id: 1, checked: false, description: 'Erste Angular Applikation erstellen'},
     {id: 2, checked: false, description: 'Todo Komponente erstellen'},
     {id: 3, checked: false, description: 'Todos anzeigen'},
-    {id: 4, checked: false, description: 'Todos hinzufügen'},
-    {id: 5, checked: false, description: 'Todos erledigen'}
+    {id: 4, checked: true, description: 'Todos hinzufügen'},
+    {id: 5, checked: true, description: 'Todos erledigen'}
   ];
 }
