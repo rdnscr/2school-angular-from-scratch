@@ -1,6 +1,11 @@
 import { Component } from '@angular/core';
 import { TodoItem } from './todo.type';
-import { FormGroup, FormControl, Validators, FormGroupDirective } from '@angular/forms';
+import {
+  FormGroup,
+  FormControl,
+  Validators,
+  FormGroupDirective,
+} from '@angular/forms';
 
 @Component({
   selector: 'app-todo',
@@ -8,10 +13,6 @@ import { FormGroup, FormControl, Validators, FormGroupDirective } from '@angular
   styleUrls: ['./todo.component.scss'],
 })
 export class TodoComponent {
-  public newTodoForm = new FormGroup({
-    description: new FormControl(null, [Validators.required]),
-  });
-
   public items: Array<TodoItem> = [
     {
       id: 1,
@@ -24,17 +25,7 @@ export class TodoComponent {
     { id: 5, checked: true, description: 'Todos erledigen' },
   ];
 
-  public onAdd(form: FormGroupDirective) {
-    if (this.newTodoForm.valid && this.newTodoForm.dirty) {
-      this.items.push({
-        id: this.items.length + 1,
-        description: this.newTodoForm.value.description,
-        checked: false,
-      });
-
-      form.resetForm();
-      this.newTodoForm.reset();
-      this.newTodoForm.markAsUntouched();
-    }
+  public onAdd(newTodo: TodoItem) {
+    this.items.push(newTodo);
   }
 }
