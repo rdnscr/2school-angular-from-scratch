@@ -18,6 +18,7 @@ import { TodoService } from './todo/services/todo.service';
 import { TodoAddComponent } from './todo/todo-add.component';
 import { TodoComponent } from './todo/todo.component';
 import { TodosPipe } from './todo/todos.pipe';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { TodosPipe } from './todo/todos.pipe';
     MatCardModule,
     MatCheckboxModule,
     MatInputModule,
+    MatSnackBarModule
   ],
   providers: [TodoService],
   bootstrap: [AppComponent],
