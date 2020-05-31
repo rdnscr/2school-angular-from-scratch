@@ -15,10 +15,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { TodoService } from './todo/services/todo.service';
-import { TodoAddComponent } from './todo/todo-add.component';
+import { TodoAddComponent } from './todo/add/todo-add.component';
 import { TodoComponent } from './todo/todo.component';
 import { TodosPipe } from './todo/todos.pipe';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatCardModule,
     MatCheckboxModule,
     MatInputModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    AppRoutingModule
   ],
   providers: [TodoService],
   bootstrap: [AppComponent],

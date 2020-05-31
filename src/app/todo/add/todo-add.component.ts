@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
-import { TodoItem } from './todo.type';
+import { TodoItem } from '../todo.type';
 import { FormGroupDirective, FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
