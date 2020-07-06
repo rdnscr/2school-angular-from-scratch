@@ -24,30 +24,23 @@ import { AppRoutingModule } from './app-routing.module';
 @NgModule({
   declarations: [
     AppComponent,
-    NavigationComponent,
-    TodoComponent,
-    TodosPipe,
-    TodoAddComponent,
+    NavigationComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
     LayoutModule,
-    FormsModule,
-    ReactiveFormsModule,
     MatToolbarModule,
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
     MatListModule,
     MatCardModule,
-    MatCheckboxModule,
-    MatInputModule,
     MatSnackBarModule,
     AppRoutingModule
   ],
-  providers: [TodoService],
+  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
