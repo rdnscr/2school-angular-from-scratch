@@ -13,7 +13,7 @@
         />
         <mat-hint>Errors A description is required</mat-hint>
         <mat-error
-          *ngIf="newTodoForm.get('description').hasError('required')"
+          *ngIf="newTodoForm.get('description')?.hasError('required')"
         >
           Description is <strong>required</strong>
         </mat-error>

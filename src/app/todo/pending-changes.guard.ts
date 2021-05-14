@@ -27,7 +27,7 @@ export class PendingChangesGuard implements CanDeactivate<TodoAddComponent> {
     currentState: RouterStateSnapshot
   ): Observable<boolean> | Promise<boolean> | boolean {
     if (component.newTodoForm.dirty) {
-      this.snackbar.open('Änderungen müssen zuerst gespeichert werden', null, {
+      this.snackbar.open('Änderungen müssen zuerst gespeichert werden', undefined, {
         duration: 2000,
       });
     }

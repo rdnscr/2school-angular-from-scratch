@@ -25,7 +25,7 @@ export class TodoService {
       .get<TodoItem[]>('assets/todos.json')
       .pipe(
         tap(() =>
-          this.snackbar.open('todos successfully loaded', null, {
+          this.snackbar.open('todos successfully loaded', undefined, {
             duration: 2000,
           })
         ),
