@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { UntypedFormControl, UntypedFormGroup, FormGroupDirective, Validators } from '@angular/forms';
+import { FormControl, FormGroup, FormGroupDirective, Validators } from '@angular/forms';
 import { TodoService } from '../services/todo.service';
 
 @Component({
@@ -7,15 +7,15 @@ import { TodoService } from '../services/todo.service';
   templateUrl: 'todo-add.component.html',
 })
 export class TodoAddComponent {
-  public newTodoForm = new UntypedFormGroup({
-    description: new UntypedFormControl(null, [Validators.required]),
+  public newTodoForm = new FormGroup({
+    description: new FormControl('', [Validators.required]),
   });
 
   constructor(private todoService: TodoService) {}
 
   public onAdd(form: FormGroupDirective) {
     if (this.newTodoForm.valid && this.newTodoForm.dirty) {
-      this.todoService.add(this.newTodoForm.value.description);
+      this.todoService.add(this.newTodoForm.value.description ?? '');
 
       form.resetForm();
       this.newTodoForm.reset();
