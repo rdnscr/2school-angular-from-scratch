@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, FormGroupDirective, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, FormGroupDirective, Validators } from '@angular/forms';
 import { TodoService } from '../services/todo.service';
 
 @Component({
@@ -7,8 +7,8 @@ import { TodoService } from '../services/todo.service';
   templateUrl: 'todo-add.component.html',
 })
 export class TodoAddComponent {
-  public newTodoForm = new FormGroup({
-    description: new FormControl(null, [Validators.required]),
+  public newTodoForm = new UntypedFormGroup({
+    description: new UntypedFormControl(null, [Validators.required]),
   });
 
   constructor(private todoService: TodoService) {}
