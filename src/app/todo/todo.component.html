@@ -5,9 +5,9 @@
   <mat-card-content>
     <mat-list>
       <mat-list-item *ngFor="let open of items | todos : false">
-        <div>
-          <span>{{ open.description }}</span>
-        </div>
+        <mat-checkbox [(ngModel)]="open.checked">
+          {{ open.description }}
+        </mat-checkbox>
       </mat-list-item>
     </mat-list>
   </mat-card-content>
@@ -19,9 +19,9 @@
   <mat-card-content>
     <mat-list>
       <mat-list-item *ngFor="let done of items | todos : true">
-        <div>
-          <span>{{ done.description }}</span>
-        </div>
+        <mat-checkbox [(ngModel)]="done.checked">
+          {{ done.description }}
+        </mat-checkbox>
       </mat-list-item>
     </mat-list>
   </mat-card-content>
