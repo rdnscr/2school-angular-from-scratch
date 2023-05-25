@@ -6,7 +6,7 @@ import {
   FormGroupDirective,
   Validators,
 } from '@angular/forms';
-import { TodoService } from '../services/todo.service';
+import { TodoService } from './services/todo.service';
 
 @Component({
   selector: 'app-todo',

@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { TodoItem } from '../todo/todo.type';
+import { TodoItem } from '../todo.type';
 import { Observable, catchError, tap } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
