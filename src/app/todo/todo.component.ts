@@ -25,20 +25,7 @@ export class TodoComponent {
     { id: 5, checked: false, description: 'Todos erledigen' },
   ];
 
-  public newTodoForm = new FormGroup({
-    description: new FormControl(null, [Validators.required]),
-  });
-
-  public onAdd(form: FormGroupDirective) {
-    if (this.newTodoForm.valid && this.newTodoForm.dirty) {
-      this.items.push({
-        id: this.items.length + 1,
-        description: this.newTodoForm.value.description ?? '',
-        checked: false,
-      });
-      form.resetForm();
-      this.newTodoForm.reset();
-      this.newTodoForm.markAsUntouched();
-    }
+  public onAdd(newTodo: TodoItem) {
+    this.items.push(newTodo);
   }
 }
