@@ -1,20 +1,14 @@
-import { Component } from '@angular/core';
-import { TodoItem } from './todo.type';
-import { MatCardModule } from '@angular/material/card';
-import { MatListModule } from '@angular/material/list';
 import { CommonModule } from '@angular/common';
-import { TodosPipe } from './todos.pipe';
+import { Component } from '@angular/core';
 import {
-  FormControl,
-  FormGroup,
-  FormGroupDirective,
-  FormsModule,
-  ReactiveFormsModule,
-  Validators,
+  FormsModule
 } from '@angular/forms';
+import { MatCardModule } from '@angular/material/card';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-import { MatInputModule } from '@angular/material/input';
-import { MatButtonModule } from '@angular/material/button';
+import { MatListModule } from '@angular/material/list';
+import { TodoAddComponent } from './todo-add.component';
+import { TodoItem } from './todo.type';
+import { TodosPipe } from './todos.pipe';
 @Component({
   selector: 'app-todo',
   templateUrl: './todo.component.html',
@@ -22,13 +16,11 @@ import { MatButtonModule } from '@angular/material/button';
   imports: [
     MatCardModule,
     MatListModule,
-    MatInputModule,
     MatCheckboxModule,
     FormsModule,
-    ReactiveFormsModule,
     CommonModule,
-    MatButtonModule,
     TodosPipe,
+    TodoAddComponent,
   ],
   styleUrls: ['./todo.component.scss'],
 })
@@ -45,18 +37,7 @@ export class TodoComponent {
     { id: 5, checked: false, description: 'Todos erledigen' },
   ];
 
-  public newTodoForm = new FormGroup({
-    description: new FormControl(null, [Validators.required]),
-  });
-
-  public onAdd(form: FormGroupDirective) {
-    if (this.newTodoForm.valid && this.newTodoForm.dirty) {
-      this.items.push({
-        id: this.items.length + 1,
-        description: this.newTodoForm.value.description ?? '',
-        checked: false,
-      });
-      form.resetForm();
-    }
+  public onAdd(newTodo: TodoItem) {
+    this.items.push(newTodo);
   }
 }
