@@ -9,6 +9,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import { TodoComponent } from '../todo/todo.component';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-navigation',
@@ -22,7 +23,7 @@ import { TodoComponent } from '../todo/todo.component';
     MatListModule,
     MatIconModule,
     AsyncPipe,
-    TodoComponent
+    RouterModule
   ]
 })
 export class NavigationComponent {
