@@ -22,14 +22,10 @@ import { TodoService } from './todo.service';
   styleUrls: ['./todo.component.scss'],
 })
 export class TodoComponent {
-  public items: Array<TodoItem> = [];
-
   constructor(private todoService: TodoService) {}
 
-  ngOnInit(): void {
-    this.todoService.load().subscribe((todos) => {
-      this.items = todos;
-    });
+  get items(): TodoItem[] {
+    return this.todoService.items;
   }
 
   public onAdd(newTodo: TodoItem) {

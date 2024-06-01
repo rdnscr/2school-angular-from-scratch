@@ -6,7 +6,11 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Injectable({ providedIn: 'root' })
 export class TodoService {
-  constructor(private http: HttpClient, private snackbar: MatSnackBar) {}
+  public items: Array<TodoItem> = [];
+
+  constructor(private http: HttpClient, private snackbar: MatSnackBar) {
+    this.load().subscribe(loaded => this.items = loaded);
+  }
 
   public load(): Observable<TodoItem[]> {
     return this.http.get<TodoItem[]>('assets/todos.json').pipe(
@@ -20,5 +24,13 @@ export class TodoService {
         return [];
       })
     );
+  }
+
+  public add(description: string) {
+    this.items.push({
+      id: this.items.length + 1,
+      description,
+      checked: false,
+    });
   }
 }

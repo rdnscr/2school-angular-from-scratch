@@ -11,13 +11,14 @@
     <mat-nav-list>
       <a
         mat-list-item
-        [routerLink]="['/todo']"
+        routerLink="/todo"
         routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
         >Home</a
       >
       <a
         mat-list-item
-        [routerLink]="['/todo/add']"
+        routerLink="/todo/add"
         routerLinkActive="active"
         >Add</a
       >

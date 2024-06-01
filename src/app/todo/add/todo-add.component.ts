@@ -4,6 +4,7 @@ import { FormControl, FormGroup, FormGroupDirective, ReactiveFormsModule, Valida
 import { MatCardModule } from '@angular/material/card';
 import { CommonModule } from '@angular/common';
 import { MatInputModule } from '@angular/material/input';
+import { TodoService } from '../todo.service';
 
 @Component({
   selector: 'app-todo-add',
@@ -12,8 +13,7 @@ import { MatInputModule } from '@angular/material/input';
   templateUrl: 'todo-add.component.html',
 })
 export class TodoAddComponent {
-  @Input({ required: true }) currentMaxId: number;
-  @Output() public added = new EventEmitter<TodoItem>();
+  constructor (private todoService: TodoService){}
 
   public newTodoForm = new FormGroup({
     description: new FormControl(null, [Validators.required]),
@@ -21,13 +21,8 @@ export class TodoAddComponent {
 
   public onAdd(form: FormGroupDirective) {
     if (this.newTodoForm.valid && this.newTodoForm.dirty) {
-      this.added.emit({
-        id: this.currentMaxId + 1,
-        description: this.newTodoForm.value.description ?? '',
-        checked: false,
-      });
+      this.todoService.add(this.newTodoForm.value.description ?? '');
+      form.resetForm();
     }
-
-    form.resetForm();
   }
 }
